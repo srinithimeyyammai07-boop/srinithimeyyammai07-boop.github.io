@@ -19,16 +19,18 @@
                             cyan: '#22d3ee', // cyan-400
                         }
                     },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
                     animation: {
                         'infinite-scroll': 'infinite-scroll 25s linear infinite',
+                        'infinite-scroll-y': 'infinite-scroll-y 20s linear infinite',
                     },
                     keyframes: {
                         'infinite-scroll': {
                             from: { transform: 'translateX(0)' },
                             to: { transform: 'translateX(calc(-50% - 0.5rem))' }, // -0.5rem for half the gap
+                        },
+                        'infinite-scroll-y': {
+                            from: { transform: 'translateY(0)' },
+                            to: { transform: 'translateY(calc(-50% - 0.75rem))' }, // -0.75rem for half the 1.5rem gap (gap-6)
                         }
                     }
                 }
@@ -45,6 +47,14 @@
     <style>
         body {
             background-color: #020617; /* cyber bg */
+            /* Business Theme: Sleek Grid and subtle upward trending gradient */
+            background-image: 
+                radial-gradient(ellipse at top right, rgba(34, 211, 238, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at bottom left, rgba(168, 85, 247, 0.08) 0%, transparent 50%),
+                linear-gradient(rgba(30, 41, 59, 0.3) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(30, 41, 59, 0.3) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
+            background-attachment: fixed;
             color: #cbd5e1; /* slate-300 */
         }
         /* Bento Grid utility classes */
@@ -178,42 +188,91 @@
             </div>
 
             <!-- Experience Card (Spans 2 cols) -->
-            <div class="bento-card md:col-span-2 overflow-y-auto custom-scrollbar" id="experience" data-aos="fade-up" data-aos-delay="400">
-                <h3 class="text-sm font-bold text-cyber-cyan uppercase tracking-widest mb-4">Experience & Achievements</h3>
-                <div class="space-y-6">
-                    <div class="flex gap-4">
-                        <div class="w-2 h-2 mt-2 rounded-full bg-cyber-purple shrink-0 shadow-[0_0_8px_rgba(168,85,247,0.8)]"></div>
-                        <div>
-                            <h4 class="font-bold text-white">Intern • Sri Durga Foods, Salem</h4>
-                            <p class="text-sm text-slate-400 mt-1">Observed production planning, assisted in quality control, and learned purchasing and warehouse operations.</p>
+            <div class="bento-card md:col-span-2 flex flex-col overflow-hidden" id="experience" data-aos="fade-up" data-aos-delay="400">
+                <h3 class="text-sm font-bold text-cyber-cyan uppercase tracking-widest mb-4 z-10 bg-slate-900/80 backdrop-blur-sm pb-2">Experience & Achievements</h3>
+                
+                <div class="relative flex-1 overflow-hidden h-[200px] mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)">
+                    <!-- Top/Bottom Fade for Vertical Scroll -->
+                    <div class="absolute inset-x-0 top-0 h-8 bg-gradient-to-b from-[#0d1425] to-transparent z-10 pointer-events-none"></div>
+                    <div class="absolute inset-x-0 bottom-0 h-8 bg-gradient-to-t from-[#0d1425] to-transparent z-10 pointer-events-none"></div>
+
+                    <!-- Scrolling Track -->
+                    <div class="flex flex-col gap-6 animate-infinite-scroll-y hover:[animation-play-state:paused] pt-4">
+                        <!-- Group 1 -->
+                        <div class="flex flex-col gap-6">
+                            <div class="flex gap-4">
+                                <div class="w-2 h-2 mt-2 rounded-full bg-cyber-purple shrink-0 shadow-[0_0_8px_rgba(168,85,247,0.8)]"></div>
+                                <div>
+                                    <h4 class="font-bold text-white">Intern • Sri Durga Foods, Salem</h4>
+                                    <p class="text-sm text-slate-400 mt-1">Observed production planning, assisted in quality control, and learned purchasing and warehouse operations.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <div class="w-2 h-2 mt-2 rounded-full bg-cyber-purple shrink-0 shadow-[0_0_8px_rgba(168,85,247,0.8)]"></div>
+                                <div>
+                                    <h4 class="font-bold text-white">Startup Sprint Programme • SPJIMR, Mumbai</h4>
+                                    <p class="text-sm text-slate-400 mt-1">Completed an intensive one-week program focused on entrepreneurship and business strategies.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <div class="w-2 h-2 mt-2 rounded-full bg-cyber-purple shrink-0 shadow-[0_0_8px_rgba(168,85,247,0.8)]"></div>
+                                <div>
+                                    <h4 class="font-bold text-white">Treasurer • ABLE Club</h4>
+                                    <p class="text-sm text-slate-400 mt-1">Managed club finances and demonstrated leadership in organizing activities.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <div class="w-2 h-2 mt-2 rounded-full bg-cyber-purple shrink-0 shadow-[0_0_8px_rgba(168,85,247,0.8)]"></div>
+                                <div>
+                                    <h4 class="font-bold text-white">Mahatma Gandhi (MG) Scholarship</h4>
+                                    <p class="text-sm text-slate-400 mt-1">Awarded for securing the top rank in the 1st semester.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <div class="w-2 h-2 mt-2 rounded-full bg-cyber-purple shrink-0 shadow-[0_0_8px_rgba(168,85,247,0.8)]"></div>
+                                <div>
+                                    <h4 class="font-bold text-white">Certifications</h4>
+                                    <p class="text-sm text-slate-400 mt-1">Communication Skill Certification, Presentation Skill Certification, and Microsoft Certification.</p>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="flex gap-4">
-                        <div class="w-2 h-2 mt-2 rounded-full bg-cyber-purple shrink-0 shadow-[0_0_8px_rgba(168,85,247,0.8)]"></div>
-                        <div>
-                            <h4 class="font-bold text-white">Startup Sprint Programme • SPJIMR, Mumbai</h4>
-                            <p class="text-sm text-slate-400 mt-1">Completed an intensive one-week program focused on entrepreneurship and business strategies.</p>
-                        </div>
-                    </div>
-                    <div class="flex gap-4">
-                        <div class="w-2 h-2 mt-2 rounded-full bg-cyber-purple shrink-0 shadow-[0_0_8px_rgba(168,85,247,0.8)]"></div>
-                        <div>
-                            <h4 class="font-bold text-white">Treasurer • ABLE Club</h4>
-                            <p class="text-sm text-slate-400 mt-1">Managed club finances and demonstrated leadership in organizing activities.</p>
-                        </div>
-                    </div>
-                    <div class="flex gap-4">
-                        <div class="w-2 h-2 mt-2 rounded-full bg-cyber-purple shrink-0 shadow-[0_0_8px_rgba(168,85,247,0.8)]"></div>
-                        <div>
-                            <h4 class="font-bold text-white">Mahatma Gandhi (MG) Scholarship</h4>
-                            <p class="text-sm text-slate-400 mt-1">Awarded for securing the top rank in the 1st semester.</p>
-                        </div>
-                    </div>
-                    <div class="flex gap-4">
-                        <div class="w-2 h-2 mt-2 rounded-full bg-cyber-purple shrink-0 shadow-[0_0_8px_rgba(168,85,247,0.8)]"></div>
-                        <div>
-                            <h4 class="font-bold text-white">Certifications</h4>
-                            <p class="text-sm text-slate-400 mt-1">Communication Skill Certification, Presentation Skill Certification, and Microsoft Certification.</p>
+                        <!-- Group 2 (Duplicate for Loop) -->
+                        <div class="flex flex-col gap-6">
+                            <div class="flex gap-4">
+                                <div class="w-2 h-2 mt-2 rounded-full bg-cyber-purple shrink-0 shadow-[0_0_8px_rgba(168,85,247,0.8)]"></div>
+                                <div>
+                                    <h4 class="font-bold text-white">Intern • Sri Durga Foods, Salem</h4>
+                                    <p class="text-sm text-slate-400 mt-1">Observed production planning, assisted in quality control, and learned purchasing and warehouse operations.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <div class="w-2 h-2 mt-2 rounded-full bg-cyber-purple shrink-0 shadow-[0_0_8px_rgba(168,85,247,0.8)]"></div>
+                                <div>
+                                    <h4 class="font-bold text-white">Startup Sprint Programme • SPJIMR, Mumbai</h4>
+                                    <p class="text-sm text-slate-400 mt-1">Completed an intensive one-week program focused on entrepreneurship and business strategies.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <div class="w-2 h-2 mt-2 rounded-full bg-cyber-purple shrink-0 shadow-[0_0_8px_rgba(168,85,247,0.8)]"></div>
+                                <div>
+                                    <h4 class="font-bold text-white">Treasurer • ABLE Club</h4>
+                                    <p class="text-sm text-slate-400 mt-1">Managed club finances and demonstrated leadership in organizing activities.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <div class="w-2 h-2 mt-2 rounded-full bg-cyber-purple shrink-0 shadow-[0_0_8px_rgba(168,85,247,0.8)]"></div>
+                                <div>
+                                    <h4 class="font-bold text-white">Mahatma Gandhi (MG) Scholarship</h4>
+                                    <p class="text-sm text-slate-400 mt-1">Awarded for securing the top rank in the 1st semester.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <div class="w-2 h-2 mt-2 rounded-full bg-cyber-purple shrink-0 shadow-[0_0_8px_rgba(168,85,247,0.8)]"></div>
+                                <div>
+                                    <h4 class="font-bold text-white">Certifications</h4>
+                                    <p class="text-sm text-slate-400 mt-1">Communication Skill Certification, Presentation Skill Certification, and Microsoft Certification.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
