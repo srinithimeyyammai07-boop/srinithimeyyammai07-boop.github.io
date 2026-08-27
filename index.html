@@ -234,12 +234,12 @@
         var typed = new Typed('#typed', options);
 
         // ProtoSem Data & Logic
-        const protoSemWeeks = Array.from({ length: 20 }, (_, i) => ({
-            week: i + 1,
-            phase: Math.floor(i / 5) + 1,
-            title: `WEEK ${(i + 1).toString().padStart(2, '0')}`,
-            status: "COMING SOON",
-            slug: `week-${(i + 1).toString().padStart(2, '0')}`
+        const protoSemWeeks = Array.from({ length: 21 }, (_, i) => ({
+            week: i,
+            phase: i === 0 ? 1 : Math.floor((i - 1) / 5) + 1,
+            title: `WEEK ${i.toString().padStart(2, '0')}`,
+            status: i === 0 ? "ORIENTATION" : "COMING SOON",
+            slug: `week-${i.toString().padStart(2, '0')}`
         }));
 
         const phaseNav = document.getElementById('phase-nav');
