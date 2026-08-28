@@ -370,6 +370,139 @@
         </div>
     </section>
 
+    <!-- Week 00 Modal -->
+    <div id="week00-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center px-4 py-6 sm:px-0">
+        <!-- Backdrop -->
+        <div class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm transition-opacity" onclick="document.getElementById('week00-modal').classList.add('hidden'); document.body.style.overflow='auto';"></div>
+        
+        <!-- Modal Content -->
+        <div class="relative bg-[#0d1425] border border-cyber-purple/50 rounded-2xl shadow-[0_0_30px_rgba(168,85,247,0.2)] max-w-4xl w-full max-h-[90vh] overflow-y-auto custom-scrollbar z-10">
+            <!-- Header -->
+            <div class="sticky top-0 bg-[#0d1425]/90 backdrop-blur-md border-b border-slate-700/50 px-6 py-4 flex justify-between items-center z-20">
+                <div>
+                    <span class="text-xs font-bold text-cyber-cyan tracking-widest uppercase">Phase 01</span>
+                    <h3 class="text-2xl font-bold text-white mt-1">Week 00: Orientation</h3>
+                </div>
+                <button onclick="document.getElementById('week00-modal').classList.add('hidden'); document.body.style.overflow='auto';" class="text-slate-400 hover:text-white transition-colors p-2 rounded-full hover:bg-slate-800">
+                    <i class="fa-solid fa-xmark text-xl"></i>
+                </button>
+            </div>
+            
+            <!-- Body -->
+            <div class="p-6 md:p-8 space-y-8 text-slate-300 leading-relaxed">
+                <p class="text-lg text-slate-200">
+                    Week 0 marked the beginning of my Protosem journey, introducing me to a new learning environment focused on self-discovery, communication, collaboration, and professional development.
+                </p>
+
+                <!-- Ice Breaker -->
+                <div class="bg-slate-800/30 p-6 rounded-xl border border-slate-700/50 hover:border-cyber-cyan/30 transition-colors">
+                    <h4 class="text-xl font-bold text-cyber-cyan mb-3 flex items-center gap-2"><i class="fa-solid fa-handshake"></i> Ice Breaker Sessions</h4>
+                    <p class="mb-4">Participated in interactive ice-breaker activities that helped us introduce ourselves, interact with new people, and become comfortable working with our peers.</p>
+                    <h5 class="font-bold text-white mb-2">Learnings:</h5>
+                    <ul class="list-disc list-inside space-y-1 text-slate-400 marker:text-cyber-purple">
+                        <li>Improved my confidence in interacting with new people.</li>
+                        <li>Learned the importance of active participation.</li>
+                        <li>Understood how informal activities can build trust and teamwork.</li>
+                        <li>Stepped outside my comfort zone.</li>
+                    </ul>
+                </div>
+
+                <!-- Marshmallow Challenge -->
+                <div class="bg-slate-800/30 p-6 rounded-xl border border-slate-700/50 hover:border-cyber-purple/30 transition-colors">
+                    <h4 class="text-xl font-bold text-cyber-purple mb-3 flex items-center gap-2">🏗️ Marshmallow Challenge</h4>
+                    <p class="mb-4"><strong>Activity:</strong> Worked as a team to build the tallest possible structure using limited materials, encouraging us to think creatively and collaborate under time constraints.</p>
+                    <h5 class="font-bold text-white mb-2">Learnings:</h5>
+                    <ul class="list-disc list-inside space-y-1 text-slate-400 marker:text-cyber-cyan">
+                        <li><strong>Teamwork:</strong> Everyone’s contribution matters.</li>
+                        <li><strong>Creativity:</strong> Simple ideas can lead to effective solutions.</li>
+                        <li><strong>Problem-solving:</strong> Trial and error is an important part of learning.</li>
+                        <li><strong>Leadership:</strong> Good coordination helps a team perform better.</li>
+                        <li>Learned the importance of <strong>planning, communication and adaptability</strong>.</li>
+                    </ul>
+                </div>
+
+                <!-- LinkedIn -->
+                <div class="bg-slate-800/30 p-6 rounded-xl border border-slate-700/50 hover:border-blue-400/30 transition-colors">
+                    <h4 class="text-xl font-bold text-blue-400 mb-3 flex items-center gap-2">💼 LinkedIn Profile Building</h4>
+                    <p class="mb-4"><strong>Activity:</strong> Participated in a session on building and improving our LinkedIn profiles, focusing on presenting our skills, interests, achievements and professional identity.</p>
+                    <h5 class="font-bold text-white mb-2">Learnings:</h5>
+                    <ul class="list-disc list-inside space-y-1 text-slate-400 marker:text-blue-500">
+                        <li>Understood the importance of <strong>personal branding</strong>.</li>
+                        <li>Learned how to present my skills and experiences professionally.</li>
+                        <li>Realised that LinkedIn is more than just a resume—it is a platform for <strong>networking and opportunities</strong>.</li>
+                        <li>Learned the importance of maintaining a professional digital presence.</li>
+                    </ul>
+                </div>
+
+                <!-- Zen Pencils -->
+                <div class="bg-slate-800/30 p-6 rounded-xl border border-slate-700/50 hover:border-yellow-400/30 transition-colors">
+                    <h4 class="text-xl font-bold text-yellow-400 mb-3 flex items-center gap-2">🎨 Storytelling — Zen Pencils</h4>
+                    <p class="mb-4"><strong>Activity:</strong> Selected a Zen Pencils story that connected with me and used it as a way to express my personality, thoughts and values to others.</p>
+                    <h5 class="font-bold text-white mb-2">Learnings:</h5>
+                    <ul class="list-disc list-inside space-y-1 text-slate-400 marker:text-yellow-500">
+                        <li>Learned how stories can communicate <strong>personality and values</strong> effectively.</li>
+                        <li>Improved my ability to express myself creatively.</li>
+                        <li>Understood the power of storytelling in connecting with an audience.</li>
+                        <li>Reflected on what genuinely resonates with me.</li>
+                    </ul>
+                </div>
+
+                <!-- Protosem Inauguration -->
+                <div class="bg-slate-800/30 p-6 rounded-xl border border-slate-700/50 hover:border-green-400/30 transition-colors">
+                    <h4 class="text-xl font-bold text-green-400 mb-3 flex items-center gap-2">🎓 Protosem Inauguration</h4>
+                    <p class="mb-4"><strong>Activity:</strong> Attended the Protosem inauguration and listened to an inspiring address by <strong>Mr. Kumar Rajagopalan, CEO of Retailers Association of India (RAI)</strong>.</p>
+                    <h5 class="font-bold text-white mb-2">Learnings:</h5>
+                    <ul class="list-disc list-inside space-y-1 text-slate-400 marker:text-green-500">
+                        <li>Gained insights into the importance of <strong>continuous learning and adaptability</strong>.</li>
+                        <li>Understood the value of developing skills beyond academics.</li>
+                        <li>Got a broader perspective on the <strong>retail industry and professional world</strong>.</li>
+                        <li>Felt motivated to approach Protosem as an opportunity for personal and professional growth.</li>
+                    </ul>
+                </div>
+
+                <!-- YEP Kickoff -->
+                <div class="bg-slate-800/30 p-6 rounded-xl border border-slate-700/50 hover:border-red-400/30 transition-colors">
+                    <h4 class="text-xl font-bold text-red-400 mb-3 flex items-center gap-2">🚀 YEP Kickoff</h4>
+                    <p class="mb-4"><strong>Activity:</strong> Participated in the YEP kickoff session and listened to an insightful speech by the <strong>Managing Director of Thulasi Pharmacy</strong>.</p>
+                    <h5 class="font-bold text-white mb-2">Learnings:</h5>
+                    <ul class="list-disc list-inside space-y-1 text-slate-400 marker:text-red-500">
+                        <li>Gained exposure to <strong>real-world business experiences</strong>.</li>
+                        <li>Understood the importance of perseverance and consistency.</li>
+                        <li>Learned how leadership involves responsibility, decision-making and vision.</li>
+                        <li>Got motivated to think beyond theoretical knowledge and learn from industry experiences.</li>
+                    </ul>
+                </div>
+
+                <!-- Overall Learnings -->
+                <div class="pt-4 border-t border-slate-700/50">
+                    <h4 class="text-2xl font-bold text-white mb-4 flex items-center gap-2">🌱 Overall Learnings from Week 0</h4>
+                    <p class="mb-4">Week 0 helped me understand that <strong>Protosem is not just about academic learning, but about discovering myself and developing the skills required for the professional world.</strong></p>
+                    
+                    <p class="mb-2">Through the different activities and industry interactions, I developed:</p>
+                    <div class="flex flex-wrap gap-2 mb-8">
+                        <span class="px-3 py-1 bg-cyber-purple/20 text-cyber-purple border border-cyber-purple/30 rounded-full text-sm font-medium">Communication & confidence</span>
+                        <span class="px-3 py-1 bg-cyber-cyan/20 text-cyber-cyan border border-cyber-cyan/30 rounded-full text-sm font-medium">Teamwork & collaboration</span>
+                        <span class="px-3 py-1 bg-blue-400/20 text-blue-400 border border-blue-400/30 rounded-full text-sm font-medium">Creative thinking & problem-solving</span>
+                        <span class="px-3 py-1 bg-yellow-400/20 text-yellow-400 border border-yellow-400/30 rounded-full text-sm font-medium">Self-awareness</span>
+                        <span class="px-3 py-1 bg-green-400/20 text-green-400 border border-green-400/30 rounded-full text-sm font-medium">Personal branding</span>
+                        <span class="px-3 py-1 bg-pink-400/20 text-pink-400 border border-pink-400/30 rounded-full text-sm font-medium">Storytelling & presentation</span>
+                        <span class="px-3 py-1 bg-orange-400/20 text-orange-400 border border-orange-400/30 rounded-full text-sm font-medium">Networking</span>
+                        <span class="px-3 py-1 bg-red-400/20 text-red-400 border border-red-400/30 rounded-full text-sm font-medium">Professional mindset</span>
+                        <span class="px-3 py-1 bg-teal-400/20 text-teal-400 border border-teal-400/30 rounded-full text-sm font-medium">Adaptability & willingness to learn</span>
+                    </div>
+
+                    <div class="bg-gradient-to-r from-cyber-purple/20 to-transparent p-6 rounded-xl border-l-4 border-cyber-purple relative">
+                        <i class="fa-solid fa-quote-left absolute text-4xl text-cyber-purple/20 top-2 right-4"></i>
+                        <h5 class="text-sm font-bold text-cyber-purple uppercase tracking-widest mb-2">✨ Week 0 Takeaway</h5>
+                        <p class="text-lg text-white font-medium italic relative z-10">
+                            "Week 0 was my first step towards becoming more confident, collaborative and professionally aware—learning to understand myself, connect with others and look at challenges as opportunities to grow."
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer class="bg-cyber-bg py-8 border-t border-cyber-border mt-10">
         <div class="max-w-6xl mx-auto px-4 text-center">
@@ -433,7 +566,7 @@
                 : protoSemWeeks.filter(w => `PHASE 0${w.phase}` === filterPhase);
 
             grid.innerHTML = filteredWeeks.map(w => `
-                <a href="#${w.slug}" class="group block relative bg-slate-800/50 border border-slate-700 rounded-xl p-5 hover:border-cyber-cyan transition-all duration-300 transform hover:-translate-y-1 hover:shadow-[0_5px_20px_rgba(34,211,238,0.15)]">
+                <a href="${w.week === 0 ? 'javascript:void(0)' : '#' + w.slug}" ${w.week === 0 ? 'onclick="document.getElementById(\'week00-modal\').classList.remove(\'hidden\'); document.body.style.overflow=\'hidden\';"' : ''} class="group block relative bg-slate-800/50 border border-slate-700 rounded-xl p-5 hover:border-cyber-cyan transition-all duration-300 transform hover:-translate-y-1 hover:shadow-[0_5px_20px_rgba(34,211,238,0.15)] cursor-pointer">
                     <div class="flex justify-between items-center mb-6">
                         <span class="text-xs font-bold text-slate-500 group-hover:text-cyber-cyan transition-colors">PHASE 0${w.phase}</span>
                         <div class="w-1.5 h-1.5 rounded-full bg-slate-600 group-hover:bg-cyber-cyan group-hover:shadow-[0_0_8px_rgba(34,211,238,0.8)] transition-all"></div>
@@ -443,7 +576,7 @@
                     
                     <!-- Hover Overlay Tooltip (Desktop) -->
                     <div class="absolute inset-0 bg-slate-900/95 backdrop-blur-sm rounded-xl opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300 hidden md:flex border border-cyber-purple">
-                        <span class="text-cyber-cyan text-sm font-bold"><i class="fa-solid fa-bolt mr-2 text-cyber-purple"></i>Future Story</span>
+                        <span class="text-cyber-cyan text-sm font-bold"><i class="fa-solid ${w.week === 0 ? 'fa-eye text-cyber-cyan' : 'fa-bolt text-cyber-purple'} mr-2"></i>${w.week === 0 ? 'Read Journal' : 'Future Story'}</span>
                     </div>
                 </a>
             `).join('');
