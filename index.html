@@ -373,7 +373,7 @@
     <!-- Week 00 Modal -->
     <div id="week00-modal" class="fixed inset-0 z-50 hidden items-center justify-center px-4 py-6 sm:px-0">
         <!-- Backdrop -->
-        <div class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm transition-opacity" onclick="document.getElementById('week00-modal').classList.add('hidden'); document.getElementById('week00-modal').classList.remove('flex'); document.body.style.overflow='auto';"></div>
+        <div class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm transition-opacity" onclick="closeWeek00Modal()"></div>
         
         <!-- Modal Content -->
         <div class="relative bg-[#0d1425] border border-cyber-purple/50 rounded-2xl shadow-[0_0_30px_rgba(168,85,247,0.2)] max-w-4xl w-full max-h-[90vh] overflow-y-auto custom-scrollbar z-10">
@@ -383,7 +383,7 @@
                     <span class="text-xs font-bold text-cyber-cyan tracking-widest uppercase">Phase 01</span>
                     <h3 class="text-2xl font-bold text-white mt-1">Week 00: Orientation</h3>
                 </div>
-                <button onclick="document.getElementById('week00-modal').classList.add('hidden'); document.getElementById('week00-modal').classList.remove('flex'); document.body.style.overflow='auto';" class="text-slate-400 hover:text-white transition-colors p-2 rounded-full hover:bg-slate-800">
+                <button onclick="closeWeek00Modal()" class="text-slate-400 hover:text-white transition-colors p-2 rounded-full hover:bg-slate-800">
                     <i class="fa-solid fa-xmark text-xl"></i>
                 </button>
             </div>
@@ -534,6 +534,26 @@
     </style>
 
     <script>
+        // Modal functions
+        function openWeek00Modal(event) {
+            if (event) event.preventDefault();
+            const m = document.getElementById('week00-modal');
+            if (m) {
+                m.classList.remove('hidden');
+                m.classList.add('flex');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeWeek00Modal() {
+            const m = document.getElementById('week00-modal');
+            if (m) {
+                m.classList.add('hidden');
+                m.classList.remove('flex');
+                document.body.style.overflow = 'auto';
+            }
+        }
+
         // Initialize AOS
         AOS.init({
             once: true,
@@ -566,7 +586,7 @@
                 : protoSemWeeks.filter(w => `PHASE 0${w.phase}` === filterPhase);
 
             grid.innerHTML = filteredWeeks.map(w => `
-                <a href="${w.week === 0 ? 'javascript:void(0)' : '#' + w.slug}" ${w.week === 0 ? 'onclick="const m = document.getElementById(\'week00-modal\'); m.classList.remove(\'hidden\'); m.classList.add(\'flex\'); document.body.style.overflow=\'hidden\';"' : ''} class="group block relative bg-slate-800/50 border border-slate-700 rounded-xl p-5 hover:border-cyber-cyan transition-all duration-300 transform hover:-translate-y-1 hover:shadow-[0_5px_20px_rgba(34,211,238,0.15)] cursor-pointer">
+                <a href="#${w.slug}" ${w.week === 0 ? 'onclick="openWeek00Modal(event)"' : ''} class="group block relative bg-slate-800/50 border border-slate-700 rounded-xl p-5 hover:border-cyber-cyan transition-all duration-300 transform hover:-translate-y-1 hover:shadow-[0_5px_20px_rgba(34,211,238,0.15)] cursor-pointer">
                     <div class="flex justify-between items-center mb-6">
                         <span class="text-xs font-bold text-slate-500 group-hover:text-cyber-cyan transition-colors">PHASE 0${w.phase}</span>
                         <div class="w-1.5 h-1.5 rounded-full bg-slate-600 group-hover:bg-cyber-cyan group-hover:shadow-[0_0_8px_rgba(34,211,238,0.8)] transition-all"></div>
