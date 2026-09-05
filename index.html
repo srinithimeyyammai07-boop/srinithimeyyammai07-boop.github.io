@@ -935,7 +935,7 @@
                 : protoSemWeeks.filter(w => `PHASE 0${w.phase}` === filterPhase);
 
             grid.innerHTML = filteredWeeks.map(w => `
-                <a href="#${w.slug}" ${(w.week >= 0 && w.week <= 2) ? `onclick="w.week === 0 ? openWeek00Modal(event) : (w.week === 1 ? openWeek01Modal(event) : openWeek02Modal(event))"` : ''} class="group block relative bg-slate-800/50 border border-slate-700 rounded-xl p-5 hover:border-cyber-cyan transition-all duration-300 transform hover:-translate-y-1 hover:shadow-[0_5px_20px_rgba(34,211,238,0.15)] cursor-pointer">
+                <a href="#${w.slug}" ${(w.week >= 0 && w.week <= 2) ? `onclick="${w.week === 0 ? 'openWeek00Modal(event)' : (w.week === 1 ? 'openWeek01Modal(event)' : 'openWeek02Modal(event)')}"` : ''} class="group block relative bg-slate-800/50 border border-slate-700 rounded-xl p-5 hover:border-cyber-cyan transition-all duration-300 transform hover:-translate-y-1 hover:shadow-[0_5px_20px_rgba(34,211,238,0.15)] cursor-pointer">
                     <div class="flex justify-between items-center mb-6">
                         <span class="text-xs font-bold text-slate-500 group-hover:text-cyber-cyan transition-colors">PHASE 0${w.phase}</span>
                         <div class="w-1.5 h-1.5 rounded-full bg-slate-600 group-hover:bg-cyber-cyan group-hover:shadow-[0_0_8px_rgba(34,211,238,0.8)] transition-all"></div>
