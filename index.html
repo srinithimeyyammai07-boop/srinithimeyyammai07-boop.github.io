@@ -819,6 +819,66 @@
         </div>
     </div>
 
+    <!-- Week 03 Modal -->
+    <div id="week03-modal" class="fixed inset-0 z-50 hidden items-center justify-center px-4 py-6 sm:px-0">
+        <!-- Backdrop -->
+        <div class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm transition-opacity" onclick="closeWeek03Modal()"></div>
+        
+        <!-- Modal Content -->
+        <div class="relative bg-[#0d1425] border border-yellow-400/50 rounded-2xl shadow-[0_0_30px_rgba(250,204,21,0.2)] max-w-4xl w-full max-h-[90vh] overflow-y-auto custom-scrollbar z-10">
+            <!-- Header -->
+            <div class="sticky top-0 bg-[#0d1425]/95 backdrop-blur border-b border-slate-700/50 p-6 flex justify-between items-center z-20">
+                <div>
+                    <span class="text-xs font-bold text-yellow-400 tracking-widest uppercase">Phase 01</span>
+                    <h3 class="text-2xl font-bold text-white mt-1">Week 03: Introduction to Hardware & Electronics</h3>
+                </div>
+                <button onclick="closeWeek03Modal()" class="text-slate-400 hover:text-white transition-colors p-2 rounded-full hover:bg-slate-800">
+                    <i class="fa-solid fa-xmark text-xl"></i>
+                </button>
+            </div>
+
+            <!-- Body -->
+            <div class="p-6 md:p-8 space-y-8 text-slate-300 leading-relaxed">
+                <p class="text-lg">This week of Protosem gave me a practical introduction to <strong>computational hardware and basic electronics</strong>. I learned about electronic components and concepts such as power, voltage, diodes, and transmission, along with their real-world applications.</p>
+
+                <!-- Highlight Section -->
+                <div class="bg-slate-800/30 p-6 rounded-xl border border-slate-700/50 hover:border-yellow-400/30 transition-colors">
+                    <h4 class="text-xl font-bold text-yellow-400 mb-3 flex items-center gap-2">🔌 Tinkercad & Circuit Building</h4>
+                    <p class="mb-4">The highlight of the session was the <strong>Tinkercad activity</strong>, where I created a basic electronic model and understood how a circuit works by lighting a bulb.</p>
+                    <p>Later, the hands-on experience helped me connect theoretical concepts with practical implementation and strengthened my understanding of how hardware components work together.</p>
+                </div>
+
+                <!-- Overall Learnings -->
+                <div class="pt-4 border-t border-slate-700/50">
+                    <h4 class="text-2xl font-bold text-white mb-6 flex items-center gap-2">🌟 Key Takeaways</h4>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+                        <div class="bg-slate-800/50 p-4 rounded-lg border border-slate-700 border-l-4 border-l-yellow-400">
+                            <h5 class="font-bold text-white mb-1">Fundamentals</h5>
+                            <p class="text-sm text-slate-400">Understanding the fundamentals of computational hardware.</p>
+                        </div>
+                        <div class="bg-slate-800/50 p-4 rounded-lg border border-slate-700 border-l-4 border-l-yellow-400">
+                            <h5 class="font-bold text-white mb-1">Components</h5>
+                            <p class="text-sm text-slate-400">Learning about basic electronic components and their functions.</p>
+                        </div>
+                        <div class="bg-slate-800/50 p-4 rounded-lg border border-slate-700 border-l-4 border-l-yellow-400">
+                            <h5 class="font-bold text-white mb-1">Core Concepts</h5>
+                            <p class="text-sm text-slate-400">Understanding voltage, power, diodes, and transmission.</p>
+                        </div>
+                        <div class="bg-slate-800/50 p-4 rounded-lg border border-slate-700 border-l-4 border-l-yellow-400">
+                            <h5 class="font-bold text-white mb-1">Hands-on Experience</h5>
+                            <p class="text-sm text-slate-400">Gaining practical experience in building a simple circuit.</p>
+                        </div>
+                        <div class="bg-slate-800/50 p-4 rounded-lg border border-slate-700 border-l-4 border-l-yellow-400 md:col-span-2">
+                            <h5 class="font-bold text-white mb-1">Bridging the Gap</h5>
+                            <p class="text-sm text-slate-400">Connecting theoretical concepts with practical applications.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer class="bg-cyber-bg py-8 border-t border-cyber-border mt-10">
         <div class="max-w-6xl mx-auto px-4 text-center">
@@ -908,6 +968,25 @@
             }
         }
 
+        function openWeek03Modal(event) {
+            if (event) event.preventDefault();
+            const m = document.getElementById('week03-modal');
+            if (m) {
+                m.classList.remove('hidden');
+                m.classList.add('flex');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeWeek03Modal() {
+            const m = document.getElementById('week03-modal');
+            if (m) {
+                m.classList.add('hidden');
+                m.classList.remove('flex');
+                document.body.style.overflow = 'auto';
+            }
+        }
+
         // Initialize AOS
         AOS.init({
             once: true,
@@ -919,7 +998,7 @@
             week: i,
             phase: i === 0 ? 1 : Math.floor((i - 1) / 5) + 1,
             title: `WEEK ${i.toString().padStart(2, '0')}`,
-            status: i === 0 ? "ORIENTATION" : (i === 1 || i === 2) ? "COMPLETED" : "COMING SOON",
+            status: i === 0 ? "ORIENTATION" : (i >= 1 && i <= 3) ? "COMPLETED" : "COMING SOON",
             slug: `week-${i.toString().padStart(2, '0')}`
         }));
 
@@ -940,7 +1019,7 @@
                 : protoSemWeeks.filter(w => `PHASE 0${w.phase}` === filterPhase);
 
             grid.innerHTML = filteredWeeks.map(w => `
-                <a href="#${w.slug}" ${(w.week >= 0 && w.week <= 2) ? `onclick="${w.week === 0 ? 'openWeek00Modal(event)' : (w.week === 1 ? 'openWeek01Modal(event)' : 'openWeek02Modal(event)')}"` : ''} class="group block relative bg-slate-800/50 border border-slate-700 rounded-xl p-5 hover:border-cyber-cyan transition-all duration-300 transform hover:-translate-y-1 hover:shadow-[0_5px_20px_rgba(34,211,238,0.15)] cursor-pointer">
+                <a href="#${w.slug}" ${(w.week >= 0 && w.week <= 3) ? `onclick="${w.week === 0 ? 'openWeek00Modal(event)' : w.week === 1 ? 'openWeek01Modal(event)' : w.week === 2 ? 'openWeek02Modal(event)' : 'openWeek03Modal(event)'}"` : ''} class="group block relative bg-slate-800/50 border border-slate-700 rounded-xl p-5 hover:border-cyber-cyan transition-all duration-300 transform hover:-translate-y-1 hover:shadow-[0_5px_20px_rgba(34,211,238,0.15)] cursor-pointer">
                     <div class="flex justify-between items-center mb-6">
                         <span class="text-xs font-bold text-slate-500 group-hover:text-cyber-cyan transition-colors">PHASE 0${w.phase}</span>
                         <div class="w-1.5 h-1.5 rounded-full bg-slate-600 group-hover:bg-cyber-cyan group-hover:shadow-[0_0_8px_rgba(34,211,238,0.8)] transition-all"></div>
@@ -950,7 +1029,7 @@
                     
                     <!-- Hover Overlay Tooltip (Desktop) -->
                     <div class="absolute inset-0 bg-slate-900/95 backdrop-blur-sm rounded-xl opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300 hidden md:flex border border-cyber-purple">
-                        <span class="text-cyber-cyan text-sm font-bold"><i class="fa-solid ${(w.week >= 0 && w.week <= 2) ? 'fa-eye text-cyber-cyan' : 'fa-bolt text-cyber-purple'} mr-2"></i>${(w.week >= 0 && w.week <= 2) ? 'Read Journal' : 'Future Story'}</span>
+                        <span class="text-cyber-cyan text-sm font-bold"><i class="fa-solid ${(w.week >= 0 && w.week <= 3) ? 'fa-eye text-cyber-cyan' : 'fa-bolt text-cyber-purple'} mr-2"></i>${(w.week >= 0 && w.week <= 3) ? 'Read Journal' : 'Future Story'}</span>
                     </div>
                 </a>
             `).join('');
