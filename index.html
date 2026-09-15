@@ -46,25 +46,25 @@
     
     <style>
         body {
-            background-color: #f8fafc; /* Very dark slate */
-            /* Professional Minimal Theme: Clean blueprint crosses, matte noise, and soft ambient lighting */
+            background-color: #FDFBF7; /* Soft cream/off-white */
+            /* Minimal Cream Theme: Extremely subtle prints and noise */
             background-image: 
-                url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 18v4M18 20h4' stroke='rgba(0,0,0,0.06)' stroke-width='1' fill='none'/%3E%3C/svg%3E"),
-                url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E"),
-                radial-gradient(ellipse at top center, rgba(79, 70, 229, 0.08) 0%, transparent 70%),
-                radial-gradient(ellipse at bottom, rgba(56, 189, 248, 0.05) 0%, transparent 50%);
-            background-size: 40px 40px, 200px 200px, 100% 100%, 100% 100%;
+                url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 28v4M28 30h4' stroke='rgba(0,0,0,0.03)' stroke-width='1' fill='none'/%3E%3C/svg%3E"),
+                url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E"),
+                radial-gradient(ellipse at top center, rgba(253, 230, 138, 0.15) 0%, transparent 70%),
+                radial-gradient(ellipse at bottom, rgba(79, 70, 229, 0.03) 0%, transparent 50%);
+            background-size: 60px 60px, 200px 200px, 100% 100%, 100% 100%;
             background-position: 0 0, 0 0, 0 0;
             background-attachment: fixed;
-            color: #475569; /* slate-600 for light mode readability */
+            color: #57534E; /* stone-600 for warmer text */
         }
         /* Bento Grid utility classes */
         .bento-card {
-            background: rgba(255, 255, 255, 0.8); /* translucent surface */
-            backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.6); /* very subtle translucent surface */
+            backdrop-filter: blur(16px);
             border-radius: 1.5rem;
             padding: 2rem;
-            border: 1px solid #e2e8f0; /* slate-200 border for light mode */
+            border: 1px solid rgba(0,0,0,0.05); /* extremely minimal border */
             transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
         }
         .bento-card:hover {
