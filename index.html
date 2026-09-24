@@ -46,17 +46,37 @@
     
     <style>
         body {
-            background-color: #FDFBF7; /* Soft cream/off-white */
-            /* Minimal Cream Theme: Extremely subtle prints and noise */
+            background-color: #f8fafc; /* Clean very light grey */
+            /* Modern Business-Tech Theme: Abstract geometry, grid, and nodes */
             background-image: 
-                url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 28v4M28 30h4' stroke='rgba(0,0,0,0.03)' stroke-width='1' fill='none'/%3E%3C/svg%3E"),
-                url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E"),
-                radial-gradient(ellipse at top center, rgba(253, 230, 138, 0.15) 0%, transparent 70%),
-                radial-gradient(ellipse at bottom, rgba(79, 70, 229, 0.03) 0%, transparent 50%);
-            background-size: 60px 60px, 200px 200px, 100% 100%, 100% 100%;
+                /* 1. Subtle Dot Grid */
+                url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='1.5' cy='1.5' r='1' fill='rgba(30,58,138,0.06)'/%3E%3C/svg%3E"),
+                /* 2. Abstract Flowing Lines */
+                url("data:image/svg+xml,%3Csvg width='200' height='200' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 100 C 50 150, 150 50, 200 100' fill='none' stroke='rgba(30,58,138,0.04)' stroke-width='0.5'/%3E%3Cpath d='M0 50 C 100 150, 100 0, 200 150' fill='none' stroke='rgba(56,189,248,0.03)' stroke-width='0.5'/%3E%3C/svg%3E"),
+                /* 3. Faint Tech Connecting Nodes */
+                url("data:image/svg+xml,%3Csvg width='150' height='150' viewBox='0 0 150 150' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='30' cy='30' r='1.5' fill='rgba(15,23,42,0.04)'/%3E%3Ccircle cx='120' cy='100' r='1.5' fill='rgba(15,23,42,0.04)'/%3E%3Cpath d='M30 30 L 120 100' fill='none' stroke='rgba(15,23,42,0.02)' stroke-width='0.5'/%3E%3C/svg%3E");
+            background-size: 30px 30px, 200px 200px, 150px 150px;
             background-position: 0 0, 0 0, 0 0;
             background-attachment: fixed;
-            color: #57534E; /* stone-600 for warmer text */
+            color: #334155; /* slate-700 for high readability */
+        }
+        
+        /* Animated Floating Gradients */
+        .ambient-orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.6;
+            z-index: -1;
+            pointer-events: none;
+            animation: float 25s infinite ease-in-out;
+        }
+        
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(60px, -60px) scale(1.1); }
+            66% { transform: translate(-40px, 50px) scale(0.9); }
+            100% { transform: translate(0, 0) scale(1); }
         }
         /* Bento Grid utility classes */
         .bento-card {
@@ -82,6 +102,10 @@
     </style>
 </head>
 <body class="antialiased selection:bg-cyber-purple selection:text-slate-900">
+    <!-- Animated Business-Tech Background Orbs -->
+    <div class="ambient-orb bg-blue-500/10 w-[600px] h-[600px] top-[-10%] left-[-10%]" style="animation-delay: 0s;"></div>
+    <div class="ambient-orb bg-indigo-500/10 w-[500px] h-[500px] bottom-[-10%] right-[-5%]" style="animation-delay: -12s;"></div>
+    <div class="ambient-orb bg-sky-400/5 w-[400px] h-[400px] top-[40%] right-[20%]" style="animation-delay: -5s;"></div>
 
     <!-- Navigation -->
     <nav class="fixed w-full z-50 bg-slate-50/80 backdrop-blur-md border-b border-slate-200">
@@ -99,9 +123,6 @@
 
     <!-- Hero Section (3D Floating Card) -->
     <section class="min-h-screen flex items-center justify-center pt-20 px-4 relative overflow-hidden">
-        <!-- Background Ambient Glow -->
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-indigo-500/10 rounded-full blur-[120px] -z-10 pointer-events-none"></div>
-
         <div class="max-w-4xl w-full" data-aos="fade-up" data-aos-duration="1000">
             <!-- Vanilla Tilt Card -->
             <div class="bento-card !bg-white/70 text-slate-900 p-12 md:p-16 flex flex-col md:flex-row items-center gap-10 border-t border-l border-white/50 shadow-xl" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.1">
@@ -131,9 +152,9 @@
         </div>
     </section>
 
-    <!-- Bento Grid Section -->
+    <!-- Stacked Sections -->
     <section class="max-w-6xl mx-auto px-4 py-20" id="about">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[250px]">
+        <div class="flex flex-col gap-6">
             
             <!-- About Card (Spans 2 cols) -->
             <div class="bento-card md:col-span-2 flex flex-col justify-center" data-aos="fade-up" data-aos-delay="100">
@@ -166,7 +187,7 @@
             </div>
 
             <!-- Skills Card -->
-            <div class="bento-card md:col-span-1 flex flex-col overflow-hidden" id="skills" data-aos="fade-up" data-aos-delay="300">
+            <div class="bento-card md:col-span-1 flex flex-col overflow-hidden h-[300px] md:h-[350px]" id="skills" data-aos="fade-up" data-aos-delay="300">
                 <h3 class="text-sm font-bold text-cyber-cyan uppercase tracking-widest mb-4 z-10 bg-white/70 backdrop-blur-sm pb-2">Top Skills</h3>
                 
                 <div class="relative flex-1 overflow-hidden mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)">
@@ -199,7 +220,7 @@
             </div>
 
             <!-- Technical Skills Card -->
-            <div class="bento-card md:col-span-1 flex flex-col overflow-hidden" id="tech-skills" data-aos="fade-up" data-aos-delay="350">
+            <div class="bento-card md:col-span-1 flex flex-col overflow-hidden h-[300px] md:h-[350px]" id="tech-skills" data-aos="fade-up" data-aos-delay="350">
                 <h3 class="text-sm font-bold text-cyber-cyan uppercase tracking-widest mb-4 z-10 bg-white/70 backdrop-blur-sm pb-2">Technical Skills</h3>
                 <div class="flex flex-col gap-4 pt-2">
                     <span class="px-4 py-2 bg-slate-100 border border-slate-200 text-slate-600 rounded-lg text-sm font-medium hover:border-blue-400 hover:text-blue-400 transition-colors text-center w-full shadow-sm"><i class="fa-solid fa-file-word mr-2 text-blue-500"></i>Word</span>
@@ -245,7 +266,7 @@
                 <h3 class="text-xs font-bold text-cyber-purple uppercase tracking-widest mb-2">Leadership</h3>
                 <h4 class="font-bold text-slate-900 text-xl">Treasurer</h4>
                 <p class="text-sm text-cyber-cyan mt-1 font-semibold">ABLE Club</p>
-                <p class="text-slate-500 mt-2 text-sm leading-relaxed">Managed club finances and demonstrated leadership in organizing activities.</p>
+                <p class="text-slate-500 mt-2 text-sm leading-relaxed">Currently managing club finances and demonstrating leadership in organizing activities.</p>
             </div>
 
             <!-- MG Scholarship (Spans 1 col) -->
@@ -883,6 +904,111 @@
         </div>
     </div>
 
+    <!-- Week 04 Modal -->
+    <div id="week04-modal" class="fixed inset-0 z-50 hidden items-center justify-center px-4 py-6 sm:px-0">
+        <!-- Backdrop -->
+        <div class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm transition-opacity" onclick="closeWeek04Modal()"></div>
+        
+        <!-- Modal Content -->
+        <div class="relative bg-white border border-cyber-purple/50 rounded-2xl shadow-[0_0_30px_rgba(168,85,247,0.2)] max-w-4xl w-full max-h-[90vh] overflow-y-auto custom-scrollbar z-10">
+            <!-- Header -->
+            <div class="sticky top-0 bg-white/90 backdrop-blur-md border-b border-slate-200/50 px-6 py-4 flex justify-between items-center z-20">
+                <div>
+                    <span class="text-xs font-bold text-cyber-cyan tracking-widest uppercase">Phase 01</span>
+                    <h3 class="text-2xl font-bold text-slate-900 mt-1">Week 04: Embedded Systems, Sensors, ESP32 and IoT</h3>
+                </div>
+                <button onclick="closeWeek04Modal()" class="text-slate-500 hover:text-slate-900 transition-colors p-2 rounded-full hover:bg-slate-100">
+                    <i class="fa-solid fa-xmark text-xl"></i>
+                </button>
+            </div>
+            
+            <!-- Body -->
+            <div class="p-6 md:p-8 space-y-8 text-slate-600 leading-relaxed">
+                <p class="text-lg">
+                    Week 4 of Protosem focused on understanding the connection between <strong>hardware, programming, sensors, embedded systems, and IoT</strong>. The week provided a practical learning experience where we moved from basic concepts to building and experimenting with functional electronic systems.
+                </p>
+
+                <!-- Embedded Systems -->
+                <div class="bg-slate-100/50 p-6 rounded-xl border border-slate-200/50 hover:border-cyber-cyan/30 transition-colors flex flex-col md:flex-row gap-6 items-center">
+                    <div class="flex-1">
+                        <h4 class="text-xl font-bold text-cyber-cyan mb-3 flex items-center gap-2"><i class="fa-solid fa-microchip"></i> Embedded Systems and Arduino IDE</h4>
+                        <p class="mb-4">We began the week by learning about <strong>Embedded Systems</strong> and understanding how hardware and software work together to perform specific functions. We were introduced to the <strong>Arduino IDE</strong>, which is used to write, compile, and upload programs to Arduino boards.</p>
+                        <p class="mb-4">As a hands-on activity, we created basic Arduino models in which an LED could be turned on, turned off, and made to blink according to programmed instructions. This helped us understand how code can interact with physical components and control their behaviour.</p>
+                    </div>
+                    <img src="week4_arduino_led.jpg" alt="Arduino LED" class="w-full md:w-1/3 rounded-lg border border-slate-200 shadow-md">
+                </div>
+
+                <!-- Sensors & Actuators -->
+                <div class="bg-slate-100/50 p-6 rounded-xl border border-slate-200/50 hover:border-orange-400/30 transition-colors">
+                    <h4 class="text-xl font-bold text-orange-400 mb-3 flex items-center gap-2"><i class="fa-solid fa-tower-broadcast"></i> Understanding Sensors and Actuators</h4>
+                    <p class="mb-4">We then explored the concepts of <strong>Sensors and Actuators</strong>. We learned how sensors detect and collect information from the surrounding environment, while actuators perform an action based on instructions received from a control system.</p>
+                    <p class="mb-4">To strengthen our understanding, we documented a particular sensor and actuator, studying their working principles, components, connections, and practical implementation.</p>
+                </div>
+
+                <!-- Arduino Sensors -->
+                <div class="bg-slate-100/50 p-6 rounded-xl border border-slate-200/50 hover:border-cyber-purple/30 transition-colors flex flex-col md:flex-row-reverse gap-6 items-center">
+                    <div class="flex-1">
+                        <h4 class="text-xl font-bold text-cyber-purple mb-3 flex items-center gap-2"><i class="fa-brands fa-usb"></i> Working with Sensors using Arduino</h4>
+                        <p class="mb-4">After understanding the basics, we moved into practical implementation using Arduino. We worked with a <strong>Temperature and Humidity Sensor</strong> to understand how environmental conditions can be detected and converted into data that can be read by a microcontroller.</p>
+                        <p class="mb-4">We also worked with an <strong>IR Sensor</strong>, learning how infrared signals can be used for detection and how the sensor communicates with the Arduino to produce a specific output.</p>
+                        <p class="mb-4">These activities gave us practical experience in connecting sensors, writing programs, uploading code, and observing real-time outputs.</p>
+                    </div>
+                    <img src="week4_dht_sensor.jpg" alt="Arduino DHT Sensor" class="w-full md:w-1/3 rounded-lg border border-slate-200 shadow-md">
+                </div>
+
+                <!-- ESP32 -->
+                <div class="bg-slate-100/50 p-6 rounded-xl border border-slate-200/50 hover:border-blue-400/30 transition-colors">
+                    <h4 class="text-xl font-bold text-blue-400 mb-3 flex items-center gap-2"><i class="fa-solid fa-wifi"></i> Introduction to ESP32</h4>
+                    <p class="mb-4">The next stage introduced us to the <strong>ESP32</strong>, a microcontroller with built-in wireless connectivity and a wide range of applications. We explored its basic features, pins, connectivity, and how it can be interfaced with different electronic components and sensors.</p>
+                    <p class="mb-4">Using the ESP32, we created an <strong>Ultrasonic Sensor project</strong>, which helped us understand how ultrasonic signals can be used to measure distance and how the sensor communicates with the microcontroller.</p>
+                    <p class="mb-4">We also developed a <strong>Joystick Game using ESP32</strong>, combining hardware connections, programming logic, user input, and output to create an interactive application.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                        <img src="week4_ultrasonic.jpg" alt="ESP32 Ultrasonic Sensor" class="w-full h-48 object-cover object-center rounded-lg border border-slate-200 shadow-sm">
+                        <img src="week4_joystick_game.jpg" alt="ESP32 Joystick Game" class="w-full h-48 object-cover object-center rounded-lg border border-slate-200 shadow-sm">
+                    </div>
+                </div>
+
+                <!-- IoT -->
+                <div class="bg-slate-100/50 p-6 rounded-xl border border-slate-200/50 hover:border-green-400/30 transition-colors">
+                    <h4 class="text-xl font-bold text-green-400 mb-3 flex items-center gap-2"><i class="fa-solid fa-network-wired"></i> Introduction to IoT</h4>
+                    <p class="mb-4">Then we were introduced to <strong>Internet of Things (IoT)</strong> and gained a brief understanding of its applications and different layers. We learned how IoT enables physical devices to collect, communicate, and exchange data through networks, creating connected and remotely controllable systems.</p>
+                    <p class="mb-4">We then moved from the concepts to the practical implementation of IoT. We connected a circuit through Arduino to <strong>Wi-Fi</strong> and experimented with controlling a light through the connected system. We were able to perform functions such as <strong>turning the light ON and OFF and changing its colours through certain commands , etc...</strong></p>
+                    <p class="mb-4">This activity helped us understand how a physical device can be connected to the internet and controlled through a digital system, giving us a practical introduction to the concept of <strong>connected and smart devices</strong>.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                        <img src="week4_iot_led.jpg" alt="IoT LED Control" class="w-full h-48 object-cover object-center rounded-lg border border-slate-200 shadow-sm">
+                        <img src="week4_iot_dashboard.jpg" alt="IoT Dashboard" class="w-full h-48 object-cover object-center rounded-lg border border-slate-200 shadow-sm">
+                    </div>
+                </div>
+
+                <!-- Key Learnings & Reflection -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+                    <!-- Key Learnings -->
+                    <div class="bg-slate-50 border border-slate-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                        <h4 class="text-xl font-bold text-slate-900 mb-4 flex items-center gap-2"><i class="fa-solid fa-lightbulb text-yellow-400"></i> Key Learnings</h4>
+                        <ul class="list-disc list-inside space-y-2 text-slate-600">
+                            <li>Understanding <strong>Embedded Systems, Arduino, microprocessors and microcontrollers</strong>.</li>
+                            <li>Working with <strong>Arduino IDE</strong> and programming hardware components.</li>
+                            <li>Understanding <strong>sensors, actuators and real-time data</strong>.</li>
+                            <li>Interfacing Temperature & Humidity, IR and Ultrasonic Sensors.</li>
+                            <li>Exploring <strong>ESP32 and its wireless connectivity</strong>.</li>
+                            <li>Developing interactive projects using <strong>joystick input</strong>.</li>
+                            <li>Understanding the fundamentals, layers and applications of <strong>IoT</strong>.</li>
+                            <li>Understanding how <strong>hardware, software and connectivity</strong> work together to create smart systems.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Reflection -->
+                    <div class="bg-slate-50 border border-slate-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                        <h4 class="text-xl font-bold text-slate-900 mb-4 flex items-center gap-2"><i class="fa-solid fa-comment-dots text-cyber-purple"></i> Reflection</h4>
+                        <p class="mb-4">Week 4 gave me a broader understanding of how technology moves from <strong>basic electronic circuits to connected and interactive systems</strong>. Starting with Arduino and simple LED experiments, we progressed to sensors, ESP32, interactive projects, and finally IoT-based Wi-Fi connectivity.</p>
+                        <p>The practical activities helped me understand that programming is not limited to software alone—it can be used to <strong>sense the environment, control physical components, communicate through networks, and create connected solutions</strong>. This week has given me valuable hands-on exposure to embedded systems, sensors, microcontrollers, ESP32, IoT and so on.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer class="bg-slate-50 py-8 border-t border-slate-200 mt-10">
         <div class="max-w-6xl mx-auto px-4 text-center">
@@ -991,6 +1117,25 @@
             }
         }
 
+        function openWeek04Modal(event) {
+            if (event) event.preventDefault();
+            const m = document.getElementById('week04-modal');
+            if (m) {
+                m.classList.remove('hidden');
+                m.classList.add('flex');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeWeek04Modal() {
+            const m = document.getElementById('week04-modal');
+            if (m) {
+                m.classList.add('hidden');
+                m.classList.remove('flex');
+                document.body.style.overflow = 'auto';
+            }
+        }
+
         // Initialize AOS
         AOS.init({
             once: true,
@@ -1002,7 +1147,7 @@
             week: i,
             phase: i === 0 ? 1 : Math.floor((i - 1) / 5) + 1,
             title: `WEEK ${i.toString().padStart(2, '0')}`,
-            status: i === 0 ? "ORIENTATION" : (i >= 1 && i <= 3) ? "COMPLETED" : "COMING SOON",
+            status: i === 0 ? "ORIENTATION" : (i >= 1 && i <= 4) ? "COMPLETED" : "COMING SOON",
             slug: `week-${i.toString().padStart(2, '0')}`
         }));
 
@@ -1023,7 +1168,7 @@
                 : protoSemWeeks.filter(w => `PHASE 0${w.phase}` === filterPhase);
 
             grid.innerHTML = filteredWeeks.map(w => `
-                <a href="#${w.slug}" ${(w.week >= 0 && w.week <= 3) ? `onclick="${w.week === 0 ? 'openWeek00Modal(event)' : w.week === 1 ? 'openWeek01Modal(event)' : w.week === 2 ? 'openWeek02Modal(event)' : 'openWeek03Modal(event)'}"` : ''} class="group block relative bg-slate-50 border border-slate-200 rounded-xl p-5 hover:border-cyber-cyan transition-all duration-300 transform hover:-translate-y-1 hover:shadow-[0_5px_20px_rgba(34,211,238,0.15)] cursor-pointer">
+                <a href="#${w.slug}" ${(w.week >= 0 && w.week <= 4) ? 'onclick="openWeek' + w.week.toString().padStart(2, '0') + 'Modal(event)"' : ''} class="group block relative bg-slate-50 border border-slate-200 rounded-xl p-5 hover:border-cyber-cyan transition-all duration-300 transform hover:-translate-y-1 hover:shadow-[0_5px_20px_rgba(34,211,238,0.15)] cursor-pointer">
                     <div class="flex justify-between items-center mb-6">
                         <span class="text-xs font-bold text-slate-400 group-hover:text-cyber-cyan transition-colors">PHASE 0${w.phase}</span>
                         <div class="w-1.5 h-1.5 rounded-full bg-slate-600 group-hover:bg-cyber-cyan group-hover:shadow-[0_0_8px_rgba(34,211,238,0.8)] transition-all"></div>
@@ -1033,10 +1178,11 @@
                     
                     <!-- Hover Overlay Tooltip (Desktop) -->
                     <div class="absolute inset-0 bg-white/95 backdrop-blur-sm rounded-xl opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300 hidden md:flex border border-cyber-purple">
-                        <span class="text-cyber-cyan text-sm font-bold"><i class="fa-solid ${(w.week >= 0 && w.week <= 3) ? 'fa-eye text-cyber-cyan' : 'fa-bolt text-cyber-purple'} mr-2"></i>${(w.week >= 0 && w.week <= 3) ? 'Read Journal' : 'Future Story'}</span>
+                        <span class="text-cyber-cyan text-sm font-bold"><i class="fa-solid ${(w.week >= 0 && w.week <= 4) ? 'fa-eye text-cyber-cyan' : 'fa-bolt text-cyber-purple'} mr-2"></i>${(w.week >= 0 && w.week <= 4) ? 'Read Journal' : 'Future Story'}</span>
                     </div>
                 </a>
             `).join('');
+
         }
 
         // Initial render
