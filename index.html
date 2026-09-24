@@ -46,15 +46,15 @@
     
     <style>
         body {
-            background-color: #f8fafc; /* Clean very light grey */
+            background-color: #f1f5f9; /* slate-100 for better contrast */
             /* Modern Business-Tech Theme: Abstract geometry, grid, and nodes */
             background-image: 
                 /* 1. Subtle Dot Grid */
-                url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='1.5' cy='1.5' r='1' fill='rgba(30,58,138,0.06)'/%3E%3C/svg%3E"),
+                url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='1.5' cy='1.5' r='1' fill='rgba(30,58,138,0.15)'/%3E%3C/svg%3E"),
                 /* 2. Abstract Flowing Lines */
-                url("data:image/svg+xml,%3Csvg width='200' height='200' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 100 C 50 150, 150 50, 200 100' fill='none' stroke='rgba(30,58,138,0.04)' stroke-width='0.5'/%3E%3Cpath d='M0 50 C 100 150, 100 0, 200 150' fill='none' stroke='rgba(56,189,248,0.03)' stroke-width='0.5'/%3E%3C/svg%3E"),
+                url("data:image/svg+xml,%3Csvg width='200' height='200' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 100 C 50 150, 150 50, 200 100' fill='none' stroke='rgba(30,58,138,0.15)' stroke-width='1'/%3E%3Cpath d='M0 50 C 100 150, 100 0, 200 150' fill='none' stroke='rgba(56,189,248,0.1)' stroke-width='1'/%3E%3C/svg%3E"),
                 /* 3. Faint Tech Connecting Nodes */
-                url("data:image/svg+xml,%3Csvg width='150' height='150' viewBox='0 0 150 150' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='30' cy='30' r='1.5' fill='rgba(15,23,42,0.04)'/%3E%3Ccircle cx='120' cy='100' r='1.5' fill='rgba(15,23,42,0.04)'/%3E%3Cpath d='M30 30 L 120 100' fill='none' stroke='rgba(15,23,42,0.02)' stroke-width='0.5'/%3E%3C/svg%3E");
+                url("data:image/svg+xml,%3Csvg width='150' height='150' viewBox='0 0 150 150' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='30' cy='30' r='2' fill='rgba(15,23,42,0.15)'/%3E%3Ccircle cx='120' cy='100' r='2' fill='rgba(15,23,42,0.15)'/%3E%3Cpath d='M30 30 L 120 100' fill='none' stroke='rgba(15,23,42,0.1)' stroke-width='1'/%3E%3C/svg%3E");
             background-size: 30px 30px, 200px 200px, 150px 150px;
             background-position: 0 0, 0 0, 0 0;
             background-attachment: fixed;
@@ -103,9 +103,9 @@
 </head>
 <body class="antialiased selection:bg-cyber-purple selection:text-slate-900">
     <!-- Animated Business-Tech Background Orbs -->
-    <div class="ambient-orb bg-blue-500/10 w-[600px] h-[600px] top-[-10%] left-[-10%]" style="animation-delay: 0s;"></div>
-    <div class="ambient-orb bg-indigo-500/10 w-[500px] h-[500px] bottom-[-10%] right-[-5%]" style="animation-delay: -12s;"></div>
-    <div class="ambient-orb bg-sky-400/5 w-[400px] h-[400px] top-[40%] right-[20%]" style="animation-delay: -5s;"></div>
+    <div class="ambient-orb bg-blue-500/30 w-[600px] h-[600px] top-[-10%] left-[-10%]" style="animation-delay: 0s;"></div>
+    <div class="ambient-orb bg-indigo-500/30 w-[500px] h-[500px] bottom-[-10%] right-[-5%]" style="animation-delay: -12s;"></div>
+    <div class="ambient-orb bg-sky-400/20 w-[400px] h-[400px] top-[40%] right-[20%]" style="animation-delay: -5s;"></div>
 
     <!-- Navigation -->
     <nav class="fixed w-full z-50 bg-slate-50/80 backdrop-blur-md border-b border-slate-200">
