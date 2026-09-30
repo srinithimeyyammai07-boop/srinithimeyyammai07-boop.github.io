@@ -39,9 +39,7 @@
     </script>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <!-- AOS CSS -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <!-- Font Awesome -->
+            <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -123,7 +121,7 @@
 
     <!-- Hero Section (3D Floating Card) -->
     <section class="min-h-screen flex items-center justify-center pt-20 px-4 relative overflow-hidden">
-        <div class="max-w-4xl w-full" data-aos="fade-up" data-aos-duration="1000">
+        <div class="max-w-4xl w-full">
             <!-- Vanilla Tilt Card -->
             <div class="bento-card !bg-white/70 text-slate-900 p-12 md:p-16 flex flex-col md:flex-row items-center gap-10 border-t border-l border-white/50 shadow-xl" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.1">
                 <div class="shrink-0 relative">
@@ -157,7 +155,7 @@
         <div class="flex flex-col gap-8">
             
             <!-- About Section -->
-            <div class="bento-card p-8 md:p-12" data-aos="fade-up">
+            <div class="bento-card p-8 md:p-12">
                 <h3 class="text-2xl font-bold text-slate-900 mb-6 border-b border-slate-200 pb-4"><i class="fa-solid fa-user text-blue-500 mr-3"></i>About Me</h3>
                 <p class="text-slate-600 leading-relaxed text-lg mb-8">
                     I am currently pursuing a Bachelor of Business Administration (BBA) at Kumaraguru College of Liberal Arts and Science. With a strong foundation in teamwork, time management, and communication, I am actively seeking opportunities to contribute to dynamic business environments and build a successful career in management.
@@ -171,7 +169,7 @@
             </div>
 
             <!-- Education Section -->
-            <div id="education" class="bento-card p-8 md:p-12" data-aos="fade-up">
+            <div id="education" class="bento-card p-8 md:p-12">
                 <h3 class="text-2xl font-bold text-slate-900 mb-6 border-b border-slate-200 pb-4"><i class="fa-solid fa-graduation-cap text-indigo-500 mr-3"></i>Education</h3>
                 <div class="flex flex-col sm:flex-row items-start gap-6">
                     <div class="w-16 h-16 rounded-2xl bg-indigo-50 border border-indigo-100 flex items-center justify-center shrink-0">
@@ -186,7 +184,7 @@
             </div>
 
             <!-- Experience Section -->
-            <div id="experience" class="bento-card p-8 md:p-12" data-aos="fade-up">
+            <div id="experience" class="bento-card p-8 md:p-12">
                 <h3 class="text-2xl font-bold text-slate-900 mb-8 border-b border-slate-200 pb-4"><i class="fa-solid fa-briefcase text-blue-500 mr-3"></i>Experience</h3>
                 
                 <div class="flex flex-col gap-10">
@@ -215,7 +213,7 @@
             </div>
 
             <!-- Achievements & Leadership Section -->
-            <div id="achievements" class="bento-card p-8 md:p-12" data-aos="fade-up">
+            <div id="achievements" class="bento-card p-8 md:p-12">
                 <h3 class="text-2xl font-bold text-slate-900 mb-8 border-b border-slate-200 pb-4"><i class="fa-solid fa-trophy text-amber-500 mr-3"></i>Achievements & Leadership</h3>
                 
                 <div class="flex flex-col gap-10">
@@ -257,7 +255,7 @@
             </div>
 
             <!-- Skills & Certifications Section -->
-            <div id="skills" class="bento-card p-8 md:p-12" data-aos="fade-up">
+            <div id="skills" class="bento-card p-8 md:p-12">
                 <h3 class="text-2xl font-bold text-slate-900 mb-8 border-b border-slate-200 pb-4"><i class="fa-solid fa-star text-sky-500 mr-3"></i>Skills & Certifications</h3>
                 
                 <div class="mb-10">
@@ -292,7 +290,7 @@
             </div>
 
             <!-- Focus Area & Interests Section -->
-            <div id="focus" class="bento-card p-8 md:p-12" data-aos="fade-up">
+            <div id="focus" class="bento-card p-8 md:p-12">
                 <h3 class="text-2xl font-bold text-slate-900 mb-8 border-b border-slate-200 pb-4"><i class="fa-solid fa-bullseye text-indigo-500 mr-3"></i>Focus & Interests</h3>
                 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
@@ -337,7 +335,7 @@
 
     <!-- ProtoSem Section -->
     <section class="max-w-6xl mx-auto px-4 py-20 border-t border-slate-200" id="protosem">
-        <div data-aos="fade-up">
+        <div>
             <h3 class="text-sm font-bold text-cyber-cyan uppercase tracking-widest mb-2">Innovation Engineer Trainee</h3>
             <h2 class="text-3xl font-bold text-slate-900 mb-2">PRICE ProtoSem</h2>
             <p class="text-cyber-purple font-semibold mb-6">20-Week Industry-Integrated Innovation Programme</p>
@@ -1251,9 +1249,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
     <!-- Typed.js -->
 
-    <!-- AOS Animations -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    
+            
     <style>
         /* Custom scrollbar for experience card */
         .custom-scrollbar::-webkit-scrollbar {
@@ -1409,19 +1405,7 @@
             }
         }
 
-        // Initialize AOS safely
-        if (typeof AOS !== 'undefined') {
-            AOS.init({
-                once: true,
-                offset: 50,
-            });
-        } else {
-            console.error("AOS failed to load. Displaying fallback content.");
-            document.querySelectorAll('[data-aos]').forEach(el => {
-                el.style.opacity = '1';
-                el.style.transform = 'none';
-            });
-        }
+
 
         // ProtoSem Data & Logic
         const protoSemWeeks = Array.from({ length: 21 }, (_, i) => ({
