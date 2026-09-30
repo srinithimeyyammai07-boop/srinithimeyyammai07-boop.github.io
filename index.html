@@ -1250,7 +1250,7 @@
     <!-- Vanilla Tilt -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
     <!-- Typed.js -->
-    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+
     <!-- AOS Animations -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     
@@ -1409,11 +1409,19 @@
             }
         }
 
-        // Initialize AOS
-        AOS.init({
-            once: true,
-            offset: 50,
-        });
+        // Initialize AOS safely
+        if (typeof AOS !== 'undefined') {
+            AOS.init({
+                once: true,
+                offset: 50,
+            });
+        } else {
+            console.error("AOS failed to load. Displaying fallback content.");
+            document.querySelectorAll('[data-aos]').forEach(el => {
+                el.style.opacity = '1';
+                el.style.transform = 'none';
+            });
+        }
 
         // ProtoSem Data & Logic
         const protoSemWeeks = Array.from({ length: 21 }, (_, i) => ({
