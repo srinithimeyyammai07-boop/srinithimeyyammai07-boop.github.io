@@ -1303,7 +1303,7 @@
             week: i,
             phase: i === 0 ? 1 : Math.floor((i - 1) / 5) + 1,
             title: `WEEK ${i.toString().padStart(2, '0')}`,
-            status: i === 0 ? "ORIENTATION" : (i >= 1 && i <= 6) ? "COMPLETED" : "COMING SOON",
+            status: i === 0 ? "ORIENTATION" : (i >= 1 && i <= 5) ? "COMPLETED" : "COMING SOON",
             slug: `week-${i.toString().padStart(2, '0')}`
         }));
 
@@ -1324,7 +1324,7 @@
                 : protoSemWeeks.filter(w => `PHASE 0${w.phase}` === filterPhase);
 
             grid.innerHTML = filteredWeeks.map(w => `
-                <a href="#${w.slug}" ${(w.week >= 0 && w.week <= 6) ? 'onclick="openWeek' + w.week.toString().padStart(2, '0') + 'Modal(event)"' : ''} class="group block relative bg-[#0a0f25] border border-indigo-900 rounded-xl p-5 hover:border-cyber-cyan transition-all duration-300 transform hover:-translate-y-1 hover:shadow-[0_5px_20px_rgba(34,211,238,0.15)] cursor-pointer">
+                <a href="#${w.slug}" ${(w.week >= 0 && w.week <= 5) ? 'onclick="openWeek' + w.week.toString().padStart(2, '0') + 'Modal(event)"' : ''} class="group block relative bg-[#0a0f25] border border-indigo-900 rounded-xl p-5 hover:border-cyber-cyan transition-all duration-300 transform hover:-translate-y-1 hover:shadow-[0_5px_20px_rgba(34,211,238,0.15)] cursor-pointer">
                     <div class="flex justify-between items-center mb-6">
                         <span class="text-xs font-bold text-slate-400 group-hover:text-cyber-cyan transition-colors">PHASE 0${w.phase}</span>
                         <div class="w-1.5 h-1.5 rounded-full bg-slate-600 group-hover:bg-cyber-cyan group-hover:shadow-[0_0_8px_rgba(34,211,238,0.8)] transition-all"></div>
@@ -1334,7 +1334,7 @@
                     
                     <!-- Hover Overlay Tooltip (Desktop) -->
                     <div class="absolute inset-0 bg-indigo-950/95 backdrop-blur-sm rounded-xl opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300 hidden md:flex border border-cyber-purple">
-                        <span class="text-cyber-cyan text-sm font-bold"><i class="fa-solid ${(w.week >= 0 && w.week <= 6) ? 'fa-eye text-cyber-cyan' : 'fa-bolt text-cyber-purple'} mr-2"></i>${(w.week >= 0 && w.week <= 6) ? 'Read Journal' : 'Future Story'}</span>
+                        <span class="text-cyber-cyan text-sm font-bold"><i class="fa-solid ${(w.week >= 0 && w.week <= 5) ? 'fa-eye text-cyber-cyan' : 'fa-bolt text-cyber-purple'} mr-2"></i>${(w.week >= 0 && w.week <= 5) ? 'Read Journal' : 'Future Story'}</span>
                     </div>
                 </a>
             `).join('');
